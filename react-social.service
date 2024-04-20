@@ -1,0 +1,14 @@
+[Unit]
+Description=Template app
+After=syslog.target network.target
+
+[Service]
+Environment=NODE_PORT=3000
+Type=simple
+User=ec2-user
+Restart=on-failure
+WorkingDirectory=/home/ec2-user/frontend-template
+ExecStart=NODE_ENV=production npm start
+
+[Install]
+WantedBy=multi-user.target
